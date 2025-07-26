@@ -24,7 +24,7 @@ app.use("/api/resume", resumeRoutes);
 app.use("/api/payment", paymentRoutes);
 
 app.get('/', async (req, res) => {
-  res.send('Server running on http://localhost:3000')
+  res.send(`Server running on port ${PORT}`)
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

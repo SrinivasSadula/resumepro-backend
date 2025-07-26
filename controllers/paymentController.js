@@ -10,6 +10,7 @@ const razorpay = new Razorpay({
 
 exports.createOrder = async (req, res) => {
   try {
+    console.log("Creating order for user:", req.user.id, JSON.stringify(req.body));
     const options = {
       amount: 9900, // ₹99.00 in paise
       currency: "INR",
@@ -18,6 +19,7 @@ exports.createOrder = async (req, res) => {
     const order = await razorpay.orders.create(options);
     res.status(200).json(order);
   } catch (err) {
+    console.error("Error creating order:", err);
     res.status(500).json({ message: err.message });
   }
 };
